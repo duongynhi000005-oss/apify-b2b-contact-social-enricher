@@ -1,0 +1,38 @@
+{
+  "title": "B2B Contact, Email & Tech Stack Enricher Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Company Domains or URLs",
+      "type": "array",
+      "description": "List of company websites to enrich (automatically crawls /contact, /about, /team, /legal).",
+      "editor": "requestListSources",
+      "default": [
+        {
+          "url": "https://apify.com"
+        }
+      ],
+      "prefill": [
+        {
+          "url": "https://apify.com"
+        }
+      ]
+    },
+    "crawlSubpages": {
+      "title": "Deep Crawl Contact/About Subpages",
+      "type": "boolean",
+      "description": "Automatically discover and crawl /contact, /about, /team, /impressum subpages.",
+      "default": true
+    },
+    "maxSubpagesPerDomain": {
+      "title": "Max Subpages Per Domain",
+      "type": "integer",
+      "description": "Maximum contact/team subpages to crawl per company domain.",
+      "default": 5
+    }
+  },
+  "required": [
+    "startUrls"
+  ]
+}
