@@ -1,84 +1,110 @@
 {
   "actorSpecification": 1,
   "name": "b2b-contact-social-enricher",
-  "title": "B2B Contact, Email & Social Media Enricher (Zero API Key)",
-  "description": "Enrich company websites and Google Maps URLs with verified B2B emails, phone numbers, LinkedIn/X/Facebook socials, Schema.org metadata, and tech stack. 100% turnkey Pay-per-Event Actor.",
-  "version": "1.0.0",
+  "title": "B2B Contact, Email, Tech Stack & Decision-Maker Enricher",
+  "description": "Deep multi-page B2B lead intelligence crawler: extracts verified corporate emails, phone numbers, LinkedIn/X/GitHub socials, 25+ SaaS/Tech Stack signals (HubSpot, Salesforce, Stripe, Shopify, GA4), JSON-LD Organization data, and 0-100 Lead Quality Score.",
+  "version": "1.0",
   "meta": {
-    "templateId": "js-crawlee-cheerio"
+    "templateId": "js-start"
   },
+  "input": "./input_schema.json",
   "dockerfile": "./Dockerfile",
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "B2B Contact, Email, Tech Stack & Decision-Maker Enricher Output",
+    "description": "Deep multi-page B2B lead intelligence crawler: extracts verified corporate emails, phone numbers, LinkedIn/X/GitHub socials, 25+ SaaS/Tech Stack signals (HubSpot, Salesforce, Stripe, Shopify, GA4), JSON-LD Organization data, and 0-100 Lead Quality Score.",
+    "type": "object",
+    "properties": {
+      "results": {
+        "type": "string",
+        "title": "Enriched Dataset Items",
+        "template": "{{links.apiDefaultDatasetUrl}}/items"
+      }
+    }
+  },
   "storages": {
     "dataset": {
       "actorSpecification": 1,
-      "fields": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "title": "url"
-          },
-          "domain": {
-            "type": "string",
-            "title": "domain"
-          },
-          "title": {
-            "type": "string",
-            "title": "title"
-          },
-          "emails": {
-            "type": "string",
-            "title": "emails"
-          },
-          "phones": {
-            "type": "string",
-            "title": "phones"
-          },
-          "linkedin": {
-            "type": "string",
-            "title": "linkedin"
-          },
-          "twitter": {
-            "type": "string",
-            "title": "twitter"
-          },
-          "github": {
-            "type": "string",
-            "title": "github"
-          }
-        }
-      },
+      "title": "B2B Contact, Email, Tech Stack & Decision-Maker Enricher Dataset",
+      "description": "Deep multi-page B2B lead intelligence crawler: extracts verified corporate emails, phone numbers, LinkedIn/X/GitHub socials, 25+ SaaS/Tech Stack signals (HubSpot, Salesforce, Stripe, Shopify, GA4), JSON-LD Organization data, and 0-100 Lead Quality Score.",
       "views": {
         "overview": {
-          "title": "Enriched B2B Leads",
+          "title": "Overview",
           "transformation": {
             "fields": [
-              "url",
               "domain",
-              "title",
+              "companyName",
+              "leadScore",
               "emails",
               "phones",
-              "linkedin",
-              "twitter",
-              "github"
+              "techStack"
             ]
           },
           "display": {
             "component": "table",
-            "properties": {}
+            "properties": {
+              "domain": {
+                "label": "Domain",
+                "format": "text"
+              },
+              "companyName": {
+                "label": "Company Name",
+                "format": "text"
+              },
+              "leadScore": {
+                "label": "Lead Score (0-100)",
+                "format": "text"
+              },
+              "emails": {
+                "label": "Verified Emails",
+                "format": "text"
+              },
+              "phones": {
+                "label": "Phone Numbers",
+                "format": "text"
+              },
+              "techStack": {
+                "label": "Detected Tech Stack",
+                "format": "text"
+              }
+            }
           }
         }
-      }
-    }
-  },
-  "output": {
-    "actorOutputSchemaVersion": 1,
-    "title": "Enriched B2B Leads Output",
-    "properties": {
-      "dataset": {
-        "type": "string",
-        "title": "Enriched B2B Leads",
-        "template": "{{links.apiDefaultDatasetUrl}}/items"
+      },
+      "fields": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "title": "Domain",
+            "description": "Domain"
+          },
+          "companyName": {
+            "type": "string",
+            "title": "Company Name",
+            "description": "Company Name"
+          },
+          "leadScore": {
+            "type": "integer",
+            "title": "Lead Score (0-100)",
+            "description": "Lead Score (0-100)"
+          },
+          "emails": {
+            "type": "array",
+            "title": "Verified Emails",
+            "description": "Verified Emails"
+          },
+          "phones": {
+            "type": "array",
+            "title": "Phone Numbers",
+            "description": "Phone Numbers"
+          },
+          "techStack": {
+            "type": "array",
+            "title": "Detected Tech Stack",
+            "description": "Detected Tech Stack"
+          }
+        }
       }
     }
   }
