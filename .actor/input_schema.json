@@ -1,0 +1,81 @@
+{
+  "title": "B2B Contact & Social Media Enricher Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrls": {
+      "title": "Target Website URLs or Domains",
+      "type": "array",
+      "description": "List of company websites or Google Maps business URLs to enrich.",
+      "editor": "requestListSources",
+      "prefill": [
+        { "url": "https://apify.com" },
+        { "url": "https://crawlee.dev" }
+      ]
+    },
+    "maxCrawlDepth": {
+      "title": "Max Crawl Depth per Website",
+      "type": "integer",
+      "description": "Depth of subpages to explore for contact data (1 = homepage + contact/about pages, 2 = nested subpages).",
+      "default": 1,
+      "minimum": 0,
+      "maximum": 2
+    },
+    "maxRequestsPerDomain": {
+      "title": "Max Pages per Domain",
+      "type": "integer",
+      "description": "Maximum number of subpages crawled per domain to conserve runtime and respect target servers.",
+      "default": 4,
+      "minimum": 1,
+      "maximum": 15
+    },
+    "extractEmails": {
+      "title": "Extract Email Addresses",
+      "type": "boolean",
+      "description": "Scrapes and cleans visible and obfuscated emails ([at], mailto: links, contact forms).",
+      "default": true
+    },
+    "extractPhones": {
+      "title": "Extract Phone Numbers",
+      "type": "boolean",
+      "description": "Extracts tel: links, international E.164, and local phone patterns.",
+      "default": true
+    },
+    "extractSocials": {
+      "title": "Extract Social Media Profiles",
+      "type": "boolean",
+      "description": "Extracts company LinkedIn, Twitter/X, Facebook, Instagram, YouTube, and GitHub links.",
+      "default": true
+    },
+    "extractTechStack": {
+      "title": "Detect Tech Stack",
+      "type": "boolean",
+      "description": "Identifies CMS, e-commerce platforms, analytics, live chat, and JavaScript frameworks.",
+      "default": true
+    },
+    "extractSchemaOrg": {
+      "title": "Extract Schema.org / LocalBusiness JSON-LD",
+      "type": "boolean",
+      "description": "Parses structured metadata including business addresses, opening hours, and geo coordinates.",
+      "default": true
+    },
+    "proxyConfiguration": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Optional proxy settings. Uses Apify Residential/Datacenter proxies if enabled.",
+      "editor": "proxy",
+      "default": {
+        "useApifyProxy": true
+      }
+    },
+    "maxConcurrency": {
+      "title": "Max Concurrency",
+      "type": "integer",
+      "description": "Number of concurrent HTTP workers.",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 50
+    }
+  },
+  "required": ["startUrls"]
+}
