@@ -2,16 +2,13 @@
   "name": "b2b-contact-social-enricher",
   "version": "1.0.0",
   "type": "module",
-  "description": "Apify Pay-per-Event Actor for B2B Contact, Email & Social Media Enrichment.",
+  "description": "Deep multi-page B2B lead intelligence crawler: extracts verified corporate emails, phone numbers, LinkedIn/X/GitHub socials, 25+ SaaS/Tech Stack signals (HubSpot, Salesforce, Stripe, Shopify, GA4), JSON-LD Organization data, and 0-100 Lead Quality Score.",
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js"
   },
-  "author": "Antigravity Solutions",
-  "license": "Apache-2.0",
   "dependencies": {
     "apify": "^3.2.0",
-    "crawlee": "^3.8.0",
-    "cheerio": "^1.0.0-rc.12"
+    "cheerio": "^1.0.0"
   }
 }
