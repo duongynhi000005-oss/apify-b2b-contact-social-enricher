@@ -11,8 +11,31 @@
   "storages": {
     "dataset": {
       "actorSpecification": 1,
-      "title": "Enriched B2B Leads Dataset",
-      "description": "Structured leads containing emails, phone numbers, social media links, tech stack, and address metadata."
+      "fields": {
+        "type": "object",
+        "properties": {}
+      },
+      "views": {
+        "overview": {
+          "title": "Enriched B2B Leads Overview",
+          "transformation": {
+            "fields": [
+              "url",
+              "domain",
+              "title",
+              "emails",
+              "phones",
+              "linkedin",
+              "twitter",
+              "github"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {}
+          }
+        }
+      }
     }
   }
 }
