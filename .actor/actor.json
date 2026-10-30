@@ -13,11 +13,44 @@
       "actorSpecification": 1,
       "fields": {
         "type": "object",
-        "properties": {}
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "url"
+          },
+          "domain": {
+            "type": "string",
+            "title": "domain"
+          },
+          "title": {
+            "type": "string",
+            "title": "title"
+          },
+          "emails": {
+            "type": "string",
+            "title": "emails"
+          },
+          "phones": {
+            "type": "string",
+            "title": "phones"
+          },
+          "linkedin": {
+            "type": "string",
+            "title": "linkedin"
+          },
+          "twitter": {
+            "type": "string",
+            "title": "twitter"
+          },
+          "github": {
+            "type": "string",
+            "title": "github"
+          }
+        }
       },
       "views": {
         "overview": {
-          "title": "Enriched B2B Leads Overview",
+          "title": "Enriched B2B Leads",
           "transformation": {
             "fields": [
               "url",
@@ -35,6 +68,17 @@
             "properties": {}
           }
         }
+      }
+    }
+  },
+  "output": {
+    "actorOutputSchemaVersion": 1,
+    "title": "Enriched B2B Leads Output",
+    "properties": {
+      "dataset": {
+        "type": "string",
+        "title": "Enriched B2B Leads",
+        "template": "{{links.apiDefaultDatasetUrl}}/items"
       }
     }
   }
