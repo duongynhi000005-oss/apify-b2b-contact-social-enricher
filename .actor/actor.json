@@ -1,0 +1,18 @@
+{
+  "actorSpecification": 1,
+  "name": "b2b-contact-social-enricher",
+  "title": "B2B Contact, Email & Social Media Enricher (Zero API Key)",
+  "description": "Enrich company websites and Google Maps URLs with verified B2B emails, phone numbers, LinkedIn/X/Facebook socials, Schema.org metadata, and tech stack. 100% turnkey Pay-per-Event Actor.",
+  "version": "1.0.0",
+  "meta": {
+    "templateId": "js-crawlee-cheerio"
+  },
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Enriched B2B Leads Dataset",
+      "description": "Structured leads containing emails, phone numbers, social media links, tech stack, and address metadata."
+    }
+  }
+}
