@@ -1,16 +1,20 @@
-# ⚡ B2B Contact, Email & Social Media Enricher (Zero API Key)
+# B2B Contact, Email, Tech Stack & Decision-Maker Enricher
 
-[![Apify Actor](https://img.shields.io/badge/Apify-Actor-blue.svg)](https://apify.com)
-[![Pay Per Event](https://img.shields.io/badge/Pricing-Pay--Per--Event%20($0.005)-green.svg)](https://apify.com)
+Deep multi-page B2B lead intelligence crawler: extracts verified corporate emails, phone numbers, LinkedIn/X/GitHub socials, 25+ SaaS/Tech Stack signals (HubSpot, Salesforce, Stripe, Shopify, GA4), JSON-LD Organization data, and 0-100 Lead Quality Score.
 
-Turn any list of company domains or Google Maps exports into **complete, outreach-ready B2B leads**.
+## Why Use B2B Contact, Email, Tech Stack & Decision-Maker Enricher?
+- **Production-Grade & Zero Maintenance**: Built specifically for automated workflows in **n8n, Make.com, Zapier, Clay, LangChain, and MCP servers**.
+- **Pay-Per-Event (PPE) Transparent Pricing**: Only **$0.005 per enriched result** (`$5.00 per 1,000 results`) with structured JSON, CSV, and Excel export.
+- **Fast & Lightweight**: Uses high-concurrency HTTP parsing and structured JSON-LD / API discovery without expensive headless browser overhead.
 
-Extract verified corporate emails, telephone numbers, executive LinkedIn profiles, Twitter/X handles, tech stack signatures, and Schema.org addresses in seconds — **without paying for third-party Apollo, Hunter, or Clearbit API keys ($0 external cost).**
+## Key Features
+1. **Deep Structured Extraction**: Automatically normalizes every output record against a strict dataset schema.
+2. **Plug-and-Play API & Webhook Integration**: Call directly via `POST https://api.apify.com/v2/acts/huynguyen-data-cloud~b2b-contact-social-enricher/run-sync-get-dataset-items`.
+3. **Built-in Data Hygiene**: Deduplicates records, filters false positives, and computes actionable scoring metrics.
 
-## 🚀 Key Advantages
-
-- 💰 **Ultra-Low Cost (Pay-per-Event):** Pay only **$0.005 per successfully enriched lead** ($5 for 1,000 leads vs $150+ on traditional lead platforms).
-- 🔑 **$0 Upfront & $0 Subscriptions:** No monthly minimums, no API keys needed.
-- 🎯 **Deep Multi-Page Discovery:** Automatically crawls `/contact`, `/about-us`, `/team`, and `/privacy` pages to find buried contact info.
-- 🛠️ **Built-in Tech Stack Detection:** Detects Shopify, WordPress, Webflow, React, Next.js, Stripe, HubSpot, and Google Analytics.
-- ⚡ **High Concurrency:** Process up to 50 domains in parallel with residential and datacenter proxy rotation.
+## Quick Start (cURL / API)
+```bash
+curl -X POST "https://api.apify.com/v2/acts/huynguyen-data-cloud~b2b-contact-social-enricher/run-sync-get-dataset-items?token=YOUR_APIFY_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"startUrls": [{"url": "https://apify.com"}], "crawlSubpages": true, "maxSubpagesPerDomain": 5}'
+```
