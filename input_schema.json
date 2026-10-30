@@ -31,8 +31,5 @@
       "description": "Maximum contact/team subpages to crawl per company domain.",
       "default": 5
     }
-  },
-  "required": [
-    "startUrls"
-  ]
+  }
 }
