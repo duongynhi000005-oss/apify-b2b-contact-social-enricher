@@ -1,0 +1,9 @@
+[
+  {
+    "lead-enriched": {
+      "eventTitle": "Enriched B2B Lead",
+      "eventDescription": "Charged when a business website domain is crawled and successfully enriched with contact, social, or metadata.",
+      "eventPriceUsd": 0.005
+    }
+  }
+]
